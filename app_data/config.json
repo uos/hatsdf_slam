@@ -1,0 +1,59 @@
+{
+    "imu": {
+        "bufferSize": 16,
+        "filterSize": 25
+    },
+
+    "lidar": {
+        "bufferSize": 1,
+        "port": 2368,
+        "pointScale": 1.0,
+        "rings": 16,
+        "vertical_fov_angle": 30.0
+    },
+
+    "registration": {
+        "max_iterations": 200,
+        "it_weight_gradient": 0.1,
+        "epsilon": 0.04
+    },
+
+    "gpio": {
+        "button_chip": "gpiochip0",
+        "button_line": 0,
+        "led_chip": "gpiochip1",
+        "led_line": 0
+    },
+
+    "bridge": {
+        "use_from": false,
+        "use_to": true,
+
+        "send_original": true,
+        "send_preprocessed": false,
+        "send_after_registration": false,
+
+        "host_from": "192.168.1.2",
+
+        "imu_port_from": 4444,
+        "imu_port_to": 5555,
+
+        "pcl_port_from": 3333,
+        "pcl_port_to": 7777,
+
+        "transform_port_to": 8888,
+        "tsdf_port_to": 6666
+    },
+
+    "slam": {
+        "max_distance": 600,
+        "map_size_x": 201,
+        "map_size_y": 201,
+        "map_size_z": 95,
+        "max_weight": 10,
+        "initial_map_weight": 0.0,
+        "map_update_period": 100,
+        "map_update_position_threshold": 500,
+        "map_path": "/data"
+    }
+}

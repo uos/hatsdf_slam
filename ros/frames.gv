@@ -1,0 +1,7 @@
+digraph G {
+"map" -> "ground_truth"[label="Broadcaster: /pose_vis\nAverage rate: 96.642 Hz\nMost recent transform: 1616078820.326 ( 0.001 sec old)\nBuffer length: 4.987 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1616078820.327"[ shape=plaintext ] ;
+ }->"map";
+}

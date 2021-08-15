@@ -1,0 +1,25 @@
+<launch>
+  #### Use this file for MIT dataset bagfiles
+  <arg name="bag" />
+  <arg name="args" default=""/>
+
+  #### Automatically set sim time true
+  <param name="/use_sim_time" value="true"/>
+
+  <include file="$(find bridge)/launch/bridge.launch">
+    <arg name="board_addr" value="192.168.1.123"/>
+    <arg name="timeout" value="10"/>
+    <arg name="discard_timestamp" value="true"/>
+  </include>
+
+  <node pkg="bridge" type="to_trenz" name="to_trenz" output="screen">
+    <remap from="/velodyne_points" to="/from_trenz/velodyne/points" />
+    <remap from="/imu/data_raw" to="/from_trenz/imu/raw" />
+  </node>
+  
+  <node pkg="rosbag" type="play" name="fastsense_player" output="screen" args="$(arg bag) $(arg args) --clock">
+    <remap from="/os1_cloud_node/points" to="/from_trenz/velodyne/points"/>
+    <remap from="/os1_cloud_node/imu" to="/from_trenz/imu/raw"/>
+  </node> 
+
+</launch>

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="evaluation" type="save_poses_node" name="save_poses_node" output="screen"/>
+</launch>

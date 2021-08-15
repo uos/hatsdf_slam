@@ -1,0 +1,8 @@
+{
+    "subGroup":
+    {
+        "myInt": 1234,
+        "myString": "Hello File!"
+    },
+    "myFloat": 2.5
+}

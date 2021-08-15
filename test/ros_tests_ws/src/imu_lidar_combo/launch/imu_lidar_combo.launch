@@ -1,0 +1,18 @@
+<launch>
+  #### Static transform from imu to world
+  <node pkg="tf" type="static_transform_publisher" name="imu_broadcaster" args="0 0 0 0 0 0 0 world imu 100" />
+
+  #### IMU Driver ###########################################################
+  <node pkg="imu_test" type="imu_test_node" name="imu_test_node" output="screen"/>
+
+  #### IMU Orientation Filter ###############################################
+  <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_node" 
+    output="screen">
+
+    <param name="use_mag" value="true"/>
+    <param name="use_magnetic_field_msg" value="true"/>
+  </node>
+
+  #### Velodyne Driver ###########################################################
+  <node pkg="velodyne_test" type="velodyne_test_node" name="velodyne_test_node" output="screen"/>
+</launch>

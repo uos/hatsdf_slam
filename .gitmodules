@@ -1,0 +1,9 @@
+[submodule "base_design"]
+	path = base_design
+	url = https://github.com/uos/hatsdf_base_design
+[submodule "ext/Catch2"]
+	path = ext/Catch2
+	url = https://github.com/catchorg/Catch2
+[submodule "ext/HighFive"]
+	path = ext/HighFive
+	url = https://github.com/BlueBrain/HighFive

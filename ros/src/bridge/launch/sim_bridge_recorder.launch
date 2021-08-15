@@ -1,0 +1,7 @@
+<launch>
+  #### Bridge 
+  <include file="$(find bridge)/launch/sim_bridge.launch"/>
+
+  #### Recorder
+  <node pkg="rosbag" type="record" name="fastsense_recorder" output="screen" args="--all -o /media/fastsense/37d47bee-ecba-4955-ab67-74a31bfbabbd/simulation/"/>   
+</launch>

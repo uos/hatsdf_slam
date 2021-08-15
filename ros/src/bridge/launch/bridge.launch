@@ -1,0 +1,19 @@
+<launch>
+  <arg name="board_addr" default="192.168.1.123"/>
+  <arg name="timeout" default="10"/>
+  <arg name="discard_timestamp" default="false"/>
+  <arg name="save_poses" default="false"/>
+
+  <node pkg="bridge" type="sync_time.sh" name="sync_time" />
+
+  <group if="$(eval arg('save_poses') == true)">
+    <include file="$(find evaluation)/launch/save_poses.launch"/>
+  </group>
+
+  <node pkg="bridge" type="from_trenz" name="from_trenz_bridge" output="screen">
+    <param name="board_addr" type="str" value="$(arg board_addr)" />
+    <param name="timeout" type="int" value="$(arg timeout)" />
+    <param name="discard_timestamp" type="bool" value="$(arg discard_timestamp)" />
+    <param name="save_poses" type="bool" value="$(arg save_poses)" />
+  </node>
+</launch>

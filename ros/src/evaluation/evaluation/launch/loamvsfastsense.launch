@@ -1,0 +1,38 @@
+<launch>
+  #### Use this file with Lego-LOAM dataset
+  <arg name="bag" />
+  <arg name="args" default=""/>
+
+  #### Automatically set sim time true
+  <param name="/use_sim_time" value="true"/>
+
+  <include file="$(find bridge)/launch/bridge.launch">
+    <arg name="board_addr" value="192.168.1.123"/>
+    <arg name="timeout" value="10"/>
+    <arg name="discard_timestamp" value="true"/>
+    <arg name="save_poses" value="true"/>
+  </include>
+
+  <!-- Send data -->
+  <node pkg="bridge" type="to_trenz" name="to_trenz" output="screen">
+    <remap from="/imu/data_raw" to="/imu/data" />
+  </node>
+
+  <!-- Launch LEGO-LOAM **without RVIZ** -->
+  <node pkg="tf" type="static_transform_publisher" name="camera_init_to_map"  args="0 0 0 1.570795   0        1.570795 /map    /camera_init 10" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0 0 0 -1.570795 -1.570795 0        /camera /base_link   10" />
+  <node pkg="lego_loam" type="imageProjection"    name="imageProjection"    output="screen"/>
+  <node pkg="lego_loam" type="featureAssociation" name="featureAssociation" output="screen"/>
+  <node pkg="lego_loam" type="mapOptmization"     name="mapOptmization"     output="screen"/>
+  <node pkg="lego_loam" type="transformFusion"    name="transformFusion"    output="screen"/>
+
+  <!--   Launch Trajectory Point Cloud to Path Converter. Also publishes SavePoseStamped Message  -->
+  <node pkg="evaluation" type="loam_to_pose_node" name="loam_to_pose_node" output="screen"/>
+
+  <!-- Play bagfiles -->
+  <node pkg="rosbag" type="play" name="fastsense_player" output="screen" args="$(arg bag) $(arg args) --clock --topics /velodyne_points /imu/data"/>
+
+  <!-- Launch rviz -->
+  <node pkg="rviz" type="rviz" name="rviz_loamvsfastsense" required="true" args="-d $(find evaluation)/config/loamvsfastsense.rviz"/>
+
+</launch>

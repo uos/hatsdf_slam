@@ -1,0 +1,17 @@
+<!-- Phidgets IMU launch file -->
+
+<launch>
+  #### IMU Driver ###########################################################
+
+  <node pkg="imu_test" type="imu_test_node" name="imu_test_node" output="screen"/>
+
+  #### IMU Orientation Filter ###############################################
+
+  <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_node" 
+    output="screen">
+
+    <param name="use_mag" value="true"/>
+    <param name="use_magnetic_field_msg" value="true"/>
+  </node>
+
+</launch>

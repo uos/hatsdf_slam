@@ -1,0 +1,17 @@
+<launch>
+  <arg name="bag" />
+  <arg name="args" default="" />
+
+  <!-- <node pkg="bridge" type="from_trenz" name="from_trenz_bridge"/> -->
+  <include file="$(find bridge)/launch/bridge.launch">
+    <arg name="board_addr" value="192.168.1.123"/>
+    <arg name="timeout" value="10"/>
+    <arg name="discard_timestamp" value="true"/>
+  </include>
+
+  <node pkg="bridge" type="to_trenz" name="to_trenz">
+    <remap from="/velodyne_legacy" to="/from_trenz/velodyne/points" />
+    <remap from="/imu/data_raw" to="/imu/data" />
+  </node>
+
+</launch>
