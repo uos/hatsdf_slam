@@ -1,5 +1,7 @@
 # HATSDF SLAM
 
+![alt-text](./img/jugendhaus_both.png)
+
 - [HATSDF SLAM](#hatsdf-slam)
   - [Dependencies](#dependencies)
   - [Build](#build)
@@ -153,5 +155,53 @@ cd /mnt
 ## Cite
 
 ```
+@inproceedings{eisoldt2021hatsdf,
+  title={HATSDF SLAM--Hardware-accelerated TSDF SLAM for Reconfigurable SoCs},
+  author={Eisoldt, Marc and Flottmann, Marcel and Gaal, Julian and Buscherm{\"o}hle, Pascal and Hinderink, Steffen and Hillmann, Malte and Nitschmann, Adrian and Hoffmann, Patrick and Wiemann, Thomas and Porrmann, Mario},
+  booktitle={2021 European Conference on Mobile Robots (ECMR)},
+  pages={1--7},
+  year={2021},
+  organization={IEEE}
+}
+```
 
+```
+@inproceedings{flottmann2021energy,
+  title={Energy-efficient FPGA-accelerated LiDAR-based SLAM for embedded robotics},
+  author={Flottmann, Marcel and Eisoldt, Marc and Gaal, Julian and Rothmann, Marc and Tassemeier, Marco and Wiemann, Thomas and Porrmann, Mario},
+  booktitle={2021 International Conference on Field-Programmable Technology (ICFPT)},
+  pages={1--6},
+  year={2021},
+  organization={IEEE}
+}
+```
+
+```
+@article{eisoldt2022fully,
+  title={A fully integrated system for hardware-accelerated TSDF SLAM with LiDAR sensors (HATSDF SLAM)},
+  author={Eisoldt, Marc and Gaal, Julian and Wiemann, Thomas and Flottmann, Marcel and Rothmann, Marc and Tassemeier, Marco and Porrmann, Mario},
+  journal={Robotics and Autonomous Systems},
+  volume={156},
+  pages={104205},
+  year={2022},
+  publisher={Elsevier}
+}
+
+```
+
+```
+@incollection{eisoldt2021reconfros,
+  title={Reconfros: Running ros on reconfigurable socs},
+  author={Eisoldt, Marc and Hinderink, Steffen and Tassemeier, Marco and Flottmann, Marcel and Vana, Juri and Wiemann, Thomas and Gaal, Julian and Rothmann, Marc and Porrmann, Mario},
+  booktitle={Proceedings of the 2021 Drone Systems Engineering and Rapid Simulation and Performance Evaluation: Methods and Tools Proceedings},
+  pages={16--21},
+  year={2021}
+}
+```
+
+```
+@article{wiemannenergieeffizientes,
+  title={Energieeffizientes FPGA-basiertes TSDF-SLAM f{\"u}r Mobile Mapping},
+  author={WIEMANN, Thomas and EISOLDT, Marc and FLOTTMANN, Marcel and GAAL, Julian and ROTHMANN, Marc and TASSEMEIER, Marco and PORRMANN, Mario}
+}
 ```
